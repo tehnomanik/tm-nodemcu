@@ -1,3 +1,14 @@
+//Needs to be flashed 2 times. First time uncomment clearEEPROM(); line in setup function. This will write
+//default data to EEPROM, before reading from it. Now comment or delete this line from sketch and reflash nodeMCU board.
+//This is simple example of using web page as user interface to configure wifi parameters for nodeMCU board to connect to 
+//existing wifi network. Example shows static IP configuration, but you can easily change it to DHCP mode. Upon first boot 
+//board will start in AP mode with both SSID and password set to nodemcuwifi. Default IP is 192.168.4.1. When you enter IP 
+//in web browser you should arrive to simple settings webpage where you can enter SSID, password, IP address, gateway IP and 
+//subnet mask, all standard data for static IP configuration. When you click SAVE and restart your board, it should connect to 
+//existing wifi network in client mode. 
+//All data is stored in EEPROM as node_config object. When board is ON and you press FLASH button it will clear all saved data 
+//in EEPROM and set board to boot in AP mode next time you restart it.
+
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <EEPROM.h>
