@@ -13,3 +13,7 @@ Requires flashing 2 times, first time with clearEEPROM(); function in setup to w
 <h2>nodeMCU - TemperatureSensorDS18b20.ino</h2>
 
 Uses wifiConfig as a base and adds reading from DS18b20 temperature sensor using OneWire and DallasTemperature libraries. Root web page of nodeMCU is settings webpage where user can enter their WiFi information. Calling /getTemp URL (e.g. boardIP/getTemp) will return simple string with current temperature in format ##.## (22.55).
+
+<h2>nodeMCU - TemperatureSensorAM2301.ino</h2>
+
+Uses wifiConfig as a base and adds reading from AM2301 temperature sensor using DHT library. Root web page of nodeMCU is settings webpage where user can enter their WiFi information. Calling /getTemp URL (e.g. boardIP/getTemp) will return simple string with current temperature and humidity in format temp#humidity (e.g. 22.50#43.70).
