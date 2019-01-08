@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pumpMaster - SETTINGS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=600, user-scalable=no" />
+
+    <style>
+        body {
+            background-color: #fff;
+            margin: auto;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-decoration: none !important;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            display: block;
+            width: 600px;
+            clear: both;
+            margin: auto;
+        }
+
+        /* ROWS */
+        .row {
+            display: block;
+            height: 80px;
+            clear: both;
+            vertical-align: middle;
+            line-height: 80px;
+            border-bottom: 2px solid #1a1a1a;
+            overflow: hidden;
+            font-size: 30px;
+        }
+        .row-xs {
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+        }        
+
+        .row-sm {
+            height: 60px;
+            line-height: 60px;
+            font-size: 24px;
+        }
+
+        .row-lg {
+            height: 120px;
+            line-height: 120px;
+            font-size: 36px;
+        }
+
+        /* CELLS */
+
+        .cell-lg {
+            width: 600px;
+            float: left;
+        }
+
+        .cell-md {
+            width: 400px;
+            float: left;
+        }
+
+        .cell-sm {
+            width: 200px;
+            float: left;
+            text-align: center;
+        }
+
+        .indicator {
+            display: block;
+            width: 60px;
+            float: left;
+            height: 100%;
+            text-align: center;
+        }
+
+        .btn {
+            width: 180px;
+            height: 100%;
+            float: left;
+            font-size: 24px;
+            font-weight: bold;
+            border-left: 10px solid #000;
+            border-right: 10px solid #000;
+            background-color: #0094ff;
+            color: white;
+        }
+
+        /*colors and backrounds*/
+        .bg-info {
+            background-color: #e6e6e6;
+            color: #1a1a1a;
+        }
+
+        .bg-data {
+            background-color: #0c336e;
+            color: white;
+        }
+
+        .bg-title {
+            background-color: #4e4e4e;
+            color: white;
+        }
+
+        /* indicator styles */
+        .on {
+            background-color: #59e430;
+            color: #59e430;
+        }
+
+        .off {
+            color: #ff0000;
+            background-color: #ff0000;
+        }
+        /* Empty Cell */
+        .empty {
+            background-color: #fff;
+            color: #fff;
+        }
+        .big {
+            font-size: 72px;
+            font-weight: bold;
+        }
+        .text-left {
+            text-align: left;
+            padding-left: 12px;
+        }
+        .textbox {
+            text-align: center;
+            font-size: 32px;
+            width: 80%;
+        }
+        .textbox-ip {
+            text-align: center;
+            font-size: 32px;
+            width: 65px;
+        }
+        .btn-in {
+            width: 200px;
+            height: 120px;
+            float: left;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .active {
+            background-color: darkorange;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="row bg-title">SETTINGS</div>
+
+        <form action="/saveEEPROM" method="POST">          
+       
+            <div class="row row-sm text-left">WiFi Configuration</div>
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">SSID</div>
+                <div class="cell-md"><input type="text" class="textbox" name="wifi_ssid" value="##wifi_ssid##"></div>
+            </div>
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">WiFi Pass</div>
+                <div class="cell-md"><input type="password" class="textbox" name="wifi_password" value="##wifi_password##"></div>
+            </div>
+
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">IP address</div>
+                <div class="cell-md">
+                    <input type="text" class="textbox-ip" name="wifi_ip1" value="##wifi_ip1##">.
+                    <input type="text" class="textbox-ip" name="wifi_ip2" value="##wifi_ip2##">.
+                    <input type="text" class="textbox-ip" name="wifi_ip3" value="##wifi_ip3##">.
+                    <input type="text" class="textbox-ip" name="wifi_ip4" value="##wifi_ip4##">
+                </div>
+            </div>
+
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">Gateway</div>
+                <div class="cell-md">
+                    <input type="text" class="textbox-ip" name="wifi_gw1" value="##wifi_gw1##">.
+                    <input type="text" class="textbox-ip" name="wifi_gw2" value="##wifi_gw2##">.
+                    <input type="text" class="textbox-ip" name="wifi_gw3" value="##wifi_gw3##">.
+                    <input type="text" class="textbox-ip" name="wifi_gw4" value="##wifi_gw4##">
+                </div>
+            </div>
+
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">Subnet</div>
+                <div class="cell-md">
+                    <input type="text" class="textbox-ip" name="wifi_sub1" value="##wifi_sub1##">.
+                    <input type="text" class="textbox-ip" name="wifi_sub2" value="##wifi_sub2##">.
+                    <input type="text" class="textbox-ip" name="wifi_sub3" value="##wifi_sub3##">.
+                    <input type="text" class="textbox-ip" name="wifi_sub4" value="##wifi_sub4##">
+                </div>
+            </div>
+
+            <div class="row row-sm text-left">SMTP Email Configuration</div>
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">Hostname</div>
+                <div class="cell-md"><input type="text" class="textbox" name="smtp_host" value="##smtp_host##"></div>
+            </div>
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">Port</div>
+                <div class="cell-md"><input type="text" class="textbox" name="smtp_port" value="##smtp_port##"></div>
+            </div>
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">Username</div>
+                <div class="cell-md"><input type="text" class="textbox" name="smtp_username" value="##smtp_username##"></div>
+            </div>
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">Password</div>
+                <div class="cell-md"><input type="password" class="textbox" name="smtp_password" value="##smtp_password##"></div>
+            </div>
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">From Email</div>
+                <div class="cell-md"><input type="text" class="textbox" name="smtp_fromEmail" value="##smtp_fromEmail##"></div>
+            </div>
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">From Name</div>
+                <div class="cell-md"><input type="text" class="textbox" name="smtp_fromName" value="##smtp_fromName##"></div>
+            </div>
+            <div class="row row-sm bg-info">
+                <div class="cell-sm">TO Email</div>
+                <div class="cell-md"><input type="text" class="textbox" name="smtp_toEmail" value="##smtp_toEmail##"></div>
+            </div>
+            <br>
+
+             <div class="row row-lg">
+                <div class="cell-sm empty">.</div>
+                <div class="cell-sm"><input type="submit" class="btn-in bg-info" value="SAVE"></div>
+                <a href="/emailTest" class="cell-sm btn-in bg-info">Test</a>
+            </div>
+            <br>
+            <br>
+         </form>
+
+</body>
+</html>
