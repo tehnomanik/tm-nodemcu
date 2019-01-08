@@ -1,4 +1,4 @@
-# nodeMCU code examples
+# nodeMCU webserver - code examples
 Some of nodeMCU/esp8266 code examples one could find interesting for their own project.
 
 # DISCLAIMER
