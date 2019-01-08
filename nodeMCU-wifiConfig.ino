@@ -84,7 +84,7 @@ void setup() {
 
 void loop() {
     // FLASH button on board sets default values and puts board into AP mode
-  if (digitalRead(0) == LOW)
+  if (digitalRead(resetButton) == LOW)
   {
     clearEEPROM();
     digitalWrite(LEDpin, LOW); // turn ON onboard LED indicating that EEPROM is cleared
