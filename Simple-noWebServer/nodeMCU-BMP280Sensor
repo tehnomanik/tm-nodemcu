@@ -1,0 +1,86 @@
+// BMP280 Pressure sensor connected to I2C bus
+// I had to correct address in Adafruit_BMP280.h library file from 0x77 to 0x76
+// #define BMP280_ADDRESS  (0x77)   ==>>   #define BMP280_ADDRESS  (0x76)
+// ======   Connections:  ============
+// VCC => 3.3V or 5V
+// GND => GND
+// SCL => D4 (GPIO 2)
+// SDA => D3 (GPIO 0)
+// CSB => not connected
+// SDD => not connected
+// ====================================
+// Uses Adafruit Unified Sensor library and Adafruit BMP280 sensor library
+// If readings are incorrect, connect CSB to VCC for a second to reset I2C bus
+
+#include <Adafruit_Sensor.h>
+#include <Adafruit_BMP280.h>
+#include <Wire.h>
+
+Adafruit_BMP280 bmp; // declare bmp280 pressure sensor object
+ 
+float temp = 0; // holds temperature reading from sensor
+float pressure = 0; // holds pressure reading from sensor
+float altitude = 0; // holds altitude reading from sensor
+
+// for altitude conversion, needs current and accurate pressure reading at sea level for your region
+// precision of altitude will depend of this value
+float altitude_base = 1015.25;
+
+int counter = 0; // counter for periodically checking temperature
+
+void setup() {
+  Serial.begin(115200); // open serial for data and debbuging
+  Serial.println("");
+  Serial.println("-== BMP280 Pressure sensor ==-");
+  
+  // BMP connected SDA => D3(0), SCL => D4(2)
+  // I2C bus setup
+  Wire.begin(0,2);
+  Wire.setClock(100000);
+
+  // Connecting to BMP280 sensor, if not connected it will loop indefinitivly
+  if (!bmp.begin()) {
+    Serial.println("ERROR: Cannot start pressure sensor...");
+    while (1);
+  }
+  Serial.println("BMP280 Pressure sensor started.");  
+  
+  delay(2000);
+}
+
+void loop() {
+  // Counter - set to read temperature about every 5 seconds, 100 counts = 5 seconds
+  if(counter > 100) {
+    getTemp(); // call function getTemp() to get readings from sensor
+    counter = 0; // reset counter
+
+    // Output on serial latest readings from sensor
+    Serial.print("Pressure: ");
+    Serial.println(String(pressure));
+    Serial.print("Temperature: ");
+    Serial.println(String(temp));
+    Serial.print("Altitude: ");
+    Serial.println(String(altitude));
+  }
+  
+  counter++;
+  delay(50); // delay x counts = around 5 seconds for 100 counts
+}
+
+
+// reads remperature from sensor and saves it in temp - global variable if it's numerical number
+void getTemp() {
+
+  // read values from sensor
+  float p = bmp.readPressure();
+  float a = bmp.readAltitude(altitude_base); // aproximate altitude based on current pressure at sea level for your region
+  float t = bmp.readTemperature();
+
+  // check if all values from sensor are in correct number format
+  if (!isnan(t) || !isnan(p) || !isnan(a)){
+    // assign latest values to global variables
+    temp = t;
+    pressure = p;
+    altitude = a;    
+  }
+}
