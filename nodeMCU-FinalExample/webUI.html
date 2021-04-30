@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>nodeMCU minWebUI</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=600, user-scalable=no" />
+
+    <style>
+        body {
+            background-color: #fff;
+            margin: auto;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-decoration: none !important;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            display: block;
+            width: 600px;
+            clear: both;
+            margin: auto;
+        }
+
+        /* ROWS */
+        .row {
+            display: block;
+            height: 80px;
+            clear: both;
+            vertical-align: middle;
+            line-height: 80px;
+            border-bottom: 2px solid #1a1a1a;
+            overflow: hidden;
+            font-size: 30px;
+        }
+
+        .row-sm {
+            height: 60px;
+            line-height: 60px;
+            font-size: 24px;
+        }
+
+        .row-lg {
+            height: 120px;
+            line-height: 120px;
+            font-size: 36px;
+        }
+
+        /* CELLS */
+
+        .cell-lg {
+            width: 600px;
+            float: left;
+        }
+
+        .cell-md {
+            width: 400px;
+            float: left;
+        }
+
+        .cell-sm {
+            width: 200px;
+            float: left;
+            text-align: center;
+        }
+
+        .indicator {
+            display: block;
+            width: 60px;
+            float: left;
+            height: 100%;
+            text-align: center;
+        }
+
+        .btn {
+            width: 180px;
+            height: 100%;
+            float: left;
+            font-size: 24px;
+            font-weight: bold;
+            border-left: 10px solid #000;
+            border-right: 10px solid #000;
+            background-color: #0094ff;
+            color: white;
+        }
+
+        /*colors and backrounds*/
+        .bg-info {
+            background-color: #e6e6e6;
+            color: #1a1a1a;
+        }
+
+        .bg-data {
+            background-color: #0c336e;
+            color: white;
+        }
+
+        .bg-title {
+            background-color: #4e4e4e;
+            color: white;
+        }
+
+        /* indicator styles */
+        .on {
+            background-color: #59e430;
+            color: white;
+        }
+
+        .off {
+            color: white;
+            background-color: #ff0000;
+        }
+        /* Empty Cell */
+        .empty {
+            background-color: #fff;
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- Main title -->
+        <div class="row row-lg">
+            <div class="cell-lg bg-title">
+                nodeMCU minWebUI
+            </div>
+        </div>
+        <br />
+        <!-- Small row -->
+        <div class="row row-sm">
+            <div class="cell-lg bg-info">small row - one large cell</div>
+        </div>
+        <!-- Standard row -->
+        <div class="row">
+            <div class="cell-lg bg-info">standard row - one large cell</div>
+        </div>
+        <!-- Large row -->
+        <div class="row row-lg">
+            <div class="cell-lg bg-info">large row - one large cell</div>
+        </div>
+        <br />
+        <!-- Title for Cells -->
+        <div class="row">
+            <div class="cell-lg bg-title">Cells</div>
+        </div>
+        <!-- One large cell -->
+        <div class="row">
+            <div class="cell-lg bg-info">one large cell (cell-lg)</div>
+        </div>
+        <!-- 2/3 + 1/3 -->
+        <div class="row">
+            <div class="cell-md bg-info">cell-md: 2/3 of width (400px)</div>
+            <div class="cell-sm bg-info">cell-sm</div>
+        </div>
+        <!-- 1/3 + 1/3 + 1/3 -->
+        <div class="row">
+            <div class="cell-sm bg-info">cell-sm</div>
+            <div class="cell-sm bg-info">cell-sm</div>
+            <div class="cell-sm bg-info">cell-sm</div>
+        </div>
+        <br />
+        <!-- Title for Backgrounds -->
+        <div class="row">
+            <div class="cell-lg bg-title">Backgrounds</div>
+        </div>
+        <!-- Backgrounds example cells -->
+        <div class="row">
+            <div class="cell-sm bg-info">bg-info</div>
+            <div class="cell-sm bg-title">bg-title</div>
+            <div class="cell-sm bg-data">bg-data</div>
+        </div>
+        <br />
+        <!-- Title for Indicators -->
+        <div class="row">
+            <div class="cell-lg bg-title">Indicators</div>
+        </div>
+        <!-- Indicator ON -->
+        <div class="row">
+            <div class="cell-lg bg-info">
+                <div class="indicator on">¤</div>
+                Indicator ON
+            </div>
+        </div>
+        <!-- Indicator OFF -->
+        <div class="row">
+            <div class="cell-lg bg-info">
+                <div class="indicator off">¤</div>
+                Indicator OFF
+            </div>
+        </div>
+        <br />
+        <!-- Title for Buttons -->
+        <div class="row">
+            <div class="cell-lg bg-title">Buttons</div>
+        </div>
+        <div class="row row-lg">
+            <div class="cell-md bg-info">
+                <div class="indicator on">¤</div>
+                Light control
+            </div>
+            <a href="#" class="btn">SWITCH</a>
+        </div>
+        <div class="row row-sm">
+            <div class="cell-md bg-info">
+                <div class="indicator off">¤</div>
+                Pump control
+            </div>
+            <a href="#" class="btn">SWITCH</a>
+        </div>
+        <br />
+
+
+        <div class="row row-lg bg-title">EXAMPLE</div>
+        <div class="row">
+            <div class="cell-md bg-info">Current time</div>
+            <div class="cell-sm bg-data">12:53</div>
+        </div>
+        <div class="row row-sm">
+            <div class="cell-md bg-info">Date</div>
+            <div class="cell-sm bg-data">24.06.2018</div>
+        </div>
+        <div class="row row-sm">
+            <div class="cell-md bg-info">IP Address</div>
+            <div class="cell-sm bg-data">192.168.2.89</div>
+        </div>
+        <div class="row row-sm">
+            <div class="cell-md bg-info">Wireless network</div>
+            <div class="cell-sm bg-data">MessNet</div>
+        </div>
+        <div class="row row-sm">
+            <div class="cell-md bg-info">
+                <div class="indicator off">¤</div>
+                Onboard LED
+            </div>
+            <a href="#" class="btn">SWITCH</a>
+        </div>
+     </div>
+
+</body>
+</html>
