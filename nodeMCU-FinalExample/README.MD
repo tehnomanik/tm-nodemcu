@@ -9,9 +9,13 @@ It displays time from online NTP servers, temperature and humidity from connecte
 Page has a button which controls onboard LED and has simple indicator to show state of LED on web page. 
 
 Previous tutorials:
+
 Part #1 video:  https://www.youtube.com/watch?v=PnejOyO75K0
+
 Part #2 video:  https://www.youtube.com/watch?v=qBcS9WT_wI8
+
 Part #3 video:  https://www.youtube.com/watch?v=a0LgA6dvnok
+
 Part #4 video:  https://www.youtube.com/watch?v=ONkHhF2I_s8
 
 Link to text to C-friendly string converter:
