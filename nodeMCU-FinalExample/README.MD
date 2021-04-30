@@ -4,8 +4,11 @@ nodeMCU #5 webserver - Web UI Final Example (NTP Time, AM2301 sensor and onboard
 Link: https://youtu.be/od8p1TA05M0 
 
 nodeMCU-sketch.ino - Code for nodeMCU/esp8266 upload
+
 defaultPage.html - Default template for webpage used in tutorial
+
 webUI.html - example of framework and all components
+
 
 This is tutorial on final example of simple web UI framework in which all previous 4 tutorials are combined. 
 Information to user is presented in form of web page hosted on nodeMCU/esp8266. 
